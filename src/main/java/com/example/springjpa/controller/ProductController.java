@@ -5,7 +5,6 @@ import com.example.springjpa.common.ApiResponseforCreate;
 import com.example.springjpa.dtos.ProductDto;
 import com.example.springjpa.model.Category;
 import com.example.springjpa.model.Product;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import com.example.springjpa.repository.CategoryRepo;
 import com.example.springjpa.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
-@CrossOrigin("*")
 public class ProductController {
 
     @Autowired

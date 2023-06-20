@@ -3,6 +3,7 @@ package com.example.springjpa.service;
 import com.example.springjpa.common.ApiResponse;
 import com.example.springjpa.common.ApiResponseforCreate;
 import com.example.springjpa.dtos.ProductDto;
+import com.example.springjpa.exceptions.ProductNotExistException;
 import com.example.springjpa.model.Category;
 import com.example.springjpa.model.Product;
 import com.example.springjpa.repository.CategoryRepo;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -74,4 +76,11 @@ return new ResponseEntity<>(new ApiResponseforCreate(false,"Category does not fo
 
     }
 
+    public Product findById(Integer product_id) throws ProductNotExistException {
+       Optional<Product> optionalProduct =productRepo.findById(product_id);
+       if (optionalProduct.isEmpty()){
+           throw new ProductNotExistException("product is invalid with id " +product_id);
+       }
+       return optionalProduct.get();
+    }
 }

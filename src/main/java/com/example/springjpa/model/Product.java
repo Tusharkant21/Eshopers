@@ -1,5 +1,6 @@
 package com.example.springjpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -18,7 +19,8 @@ public class Product {
 
 
      @ManyToOne
-    @JoinColumn
+     @JsonIgnore
+    @JoinColumn(name = "category_id")
     Category category;
 
     public String getName() {

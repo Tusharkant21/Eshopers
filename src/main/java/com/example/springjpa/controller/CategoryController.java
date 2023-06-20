@@ -1,5 +1,4 @@
 package com.example.springjpa.controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import com.example.springjpa.common.ApiResponse;
 import com.example.springjpa.common.ApiResponseforCreate;
 import com.example.springjpa.model.Category;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/category")
-@CrossOrigin(origins = "http://localhost:8548")
+
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
